@@ -1,0 +1,23 @@
+{
+  "name": "hands-on-tdd",
+  "version": "1.0.0",
+  "description": "Practicing TDD with jest",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiago154/TDD-Guilda-NodeJS.git"
+  },
+  "author": "Tiago Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiago154/TDD-Guilda-NodeJS/issues"
+  },
+  "homepage": "https://github.com/tiago154/TDD-Guilda-NodeJS#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0"
+  }
+}
