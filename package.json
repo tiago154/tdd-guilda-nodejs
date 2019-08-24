@@ -4,7 +4,7 @@
   "description": "Practicing TDD with jest",
   "main": "src/index.js",
   "scripts": {
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js --config jest.config.js"
   },
   "repository": {
     "type": "git",
