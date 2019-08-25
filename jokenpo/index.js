@@ -10,6 +10,6 @@ Papel empata com Papel e ganha de Pedra
 Não esqueça de criar validações para movimentos inexistentes
 */
 
-module.exports = (primeiraJogada, segundaJogada) => {
+module.exports = (primeiroJogador, segundoJogador) => {
     return null;
 }
