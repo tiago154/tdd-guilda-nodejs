@@ -1,19 +1,19 @@
 const { calcularMedia, respostas } = require('../../../demo');
 
 describe('Valores válidos', () => {
-    it('A mensagem deve retornar Aprovado com Distinção caso a média seja 10', () => {
+    it('Deve retornar Aprovado com Distinção caso a média seja 10', () => {
         const resultado = calcularMedia(10, 10);
 
         expect(resultado).toBe(respostas.aprovadoDisticao);
     });
 
-    it('A mensagem deve retornar Aprovado caso a média seja igual ou maior que 7 e menor 10', () => {
+    it('Deve retornar Aprovado caso a média seja igual ou maior que 7 e menor 10', () => {
         const resultado = calcularMedia(10, 9);
 
         expect(resultado).toBe(respostas.aprovado);
     });
 
-    it('A mensagem deve retornar Reprovado caso a média seja menor 7', () => {
+    it('Deve retornar Reprovado caso a média seja menor 7', () => {
         const resultado = calcularMedia(7, 6);
 
         expect(resultado).toBe(respostas.reprovado);
@@ -31,7 +31,7 @@ describe('Valores inválidos', () => {
             ];
 
             valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Primeira Nota: ${primeiraNota}`, () => {
+                it(`Valida a Primeira Nota: ${primeiraNota} e retornar mensagem de erro`, () => {
                     const resultado = calcularMedia(primeiraNota, segundaNota);
 
                     expect(resultado).toBe(respostas.erro);
@@ -46,7 +46,7 @@ describe('Valores inválidos', () => {
             ];
 
             valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Primeira Nota: ${primeiraNota}`, () => {
+                it(`Valida a Primeira Nota: ${primeiraNota} e retornar mensagem de erro`, () => {
                     const resultado = calcularMedia(primeiraNota, segundaNota);
 
                     expect(resultado).toBe(respostas.erro);
@@ -65,7 +65,7 @@ describe('Valores inválidos', () => {
             ];
 
             valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Segunda Nota: ${segundaNota}`, () => {
+                it(`Valida a Segunda Nota: ${segundaNota} e retornar mensagem de erro`, () => {
                     const resultado = calcularMedia(primeiraNota, segundaNota);
 
                     expect(resultado).toBe(respostas.erro);
@@ -80,7 +80,7 @@ describe('Valores inválidos', () => {
             ];
 
             valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Segunda Nota: ${segundaNota}`, () => {
+                it(`Valida a Segunda Nota: ${segundaNota} e retornar mensagem de erro`, () => {
                     const resultado = calcularMedia(primeiraNota, segundaNota);
 
                     expect(resultado).toBe(respostas.erro);
