@@ -57,34 +57,21 @@ describe('Valores inválidos', () => {
 
     describe('Segundo número', () => {
         describe('Não é um número', () => {
-            const valores = [
-                { primeiraNota: 10, segundaNota: null },
-                { primeiraNota: 9, segundaNota: undefined },
-                { primeiraNota: 8, segundaNota: '10' },
-                { primeiraNota: 7, segundaNota: {} }
-            ];
-
-            valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Valida a Segunda Nota: ${segundaNota} e retornar mensagem de erro`, () => {
+            // Uma outra forma de validar N argumentos de uma mesma função
+            it.each([[10, null], [9, undefined], [8, '10'], [7, {}]])
+                ('PrimeiraNota: %p, Valida a Segunda Nota: %p e retornar mensagem de erro', (primeiraNota, segundaNota) => {
                     const resultado = calcularMedia(primeiraNota, segundaNota);
 
                     expect(resultado).toBe(respostas.erro);
-                })
-            });
+                });
         });
 
         describe('Nota inválida', () => {
-            const valores = [
-                { primeiraNota: 8, segundaNota: 11 },
-                { primeiraNota: 7, segundaNota: -5 },
-            ];
+            // Uma outra forma de validar N argumentos de uma mesma função
+            it.each([[8, 11], [7, -5]])('PrimeiraNota: %p, Valida a Segunda Nota: %p', (primeiraNota, segundaNota) => {
+                const resultado = calcularMedia(primeiraNota, segundaNota);
 
-            valores.forEach(({ primeiraNota, segundaNota }) => {
-                it(`Valida a Segunda Nota: ${segundaNota} e retornar mensagem de erro`, () => {
-                    const resultado = calcularMedia(primeiraNota, segundaNota);
-
-                    expect(resultado).toBe(respostas.erro);
-                })
+                expect(resultado).toBe(respostas.erro);
             });
         });
     });
