@@ -5,7 +5,7 @@
 npm i
 ```
 
-## Exemplos de como utilizar o DDD em seu desenvolvimento
+## Exemplos de como utilizar o TDD em seu desenvolvimento
 
 ### Demo:
 
