@@ -1,43 +1,91 @@
-const { juizJokenpo } = require('../../../src/jokenpo');
-const { movimentos, respostas } = require('../../../src/jokenpo/regras');
+const { juizJokenpo } = require('../../../src/rock-paper-scissors-lizard-spock');
+const { movimentos, respostas } = require('../../../src/rock-paper-scissors-lizard-spock/regras');
 
 describe('Jogador 1 vence', () => {
-    it('Escolhendo Pedra', () => {
-        const resultado = juizJokenpo(movimentos.pedra, movimentos.tesoura);
+    describe('Escolhendo Pedra', () => {
+        it('Contra Tesoura', () => {
+            const resultado = juizJokenpo(movimentos.pedra, movimentos.tesoura);
 
-        expect(resultado).toBe(respostas.primeiro);
+            expect(resultado).toBe(respostas.primeiro);
+        });
+
+        it('Contra Lagarto', () => {
+            const resultado = juizJokenpo(movimentos.pedra, movimentos.lagarto);
+
+            expect(resultado).toBe(respostas.primeiro);
+        });
     });
 
-    it('Escolhendo Tesoura', () => {
-        const resultado = juizJokenpo(movimentos.tesoura, movimentos.papel);
+    describe('Escolhendo Tesoura', () => {
+        it('Contra Papel', () => {
+            const resultado = juizJokenpo(movimentos.tesoura, movimentos.papel);
 
-        expect(resultado).toBe(respostas.primeiro);
+            expect(resultado).toBe(respostas.primeiro);
+        });
+
+        it('Contra Lagarto', () => {
+            const resultado = juizJokenpo(movimentos.tesoura, movimentos.lagarto);
+
+            expect(resultado).toBe(respostas.primeiro);
+        });
     });
 
-    it('Escolhendo Papel', () => {
-        const resultado = juizJokenpo(movimentos.papel, movimentos.pedra);
+    describe('Escolhendo Papel', () => {
+        it('Contra Pedra', () => {
+            const resultado = juizJokenpo(movimentos.papel, movimentos.pedra);
 
-        expect(resultado).toBe(respostas.primeiro);
+            expect(resultado).toBe(respostas.primeiro);
+        });
+
+        it('Contra Spock', () => {
+            const resultado = juizJokenpo(movimentos.papel, movimentos.spock);
+
+            expect(resultado).toBe(respostas.primeiro);
+        });
     });
 });
 
 describe('Jogador 2 vence', () => {
-    it('Escolhendo Pedra', () => {
-        const resultado = juizJokenpo(movimentos.tesoura, movimentos.pedra);
+    describe('Escolhendo Pedra', () => {
+        it('Contra Tesoura', () => {
+            const resultado = juizJokenpo(movimentos.tesoura, movimentos.pedra);
 
-        expect(resultado).toBe(respostas.segundo);
+            expect(resultado).toBe(respostas.segundo);
+        });
+
+        it('Contra Lagarto', () => {
+            const resultado = juizJokenpo(movimentos.lagarto, movimentos.pedra);
+
+            expect(resultado).toBe(respostas.segundo);
+        });
     });
 
-    it('Escolhendo Tesoura', () => {
-        const resultado = juizJokenpo(movimentos.papel, movimentos.tesoura);
+    describe('Escolhendo Tesoura', () => {
+        it('Contra Papel', () => {
+            const resultado = juizJokenpo(movimentos.papel, movimentos.tesoura);
 
-        expect(resultado).toBe(respostas.segundo);
+            expect(resultado).toBe(respostas.segundo);
+        });
+
+        it('Contra Lagarto', () => {
+            const resultado = juizJokenpo(movimentos.lagarto, movimentos.tesoura);
+
+            expect(resultado).toBe(respostas.segundo);
+        });
     });
 
-    it('Escolhendo Papel', () => {
-        const resultado = juizJokenpo(movimentos.pedra, movimentos.papel);
+    describe('Escolhendo Papel', () => {
+        it('Contra Pedra', () => {
+            const resultado = juizJokenpo(movimentos.pedra, movimentos.papel);
 
-        expect(resultado).toBe(respostas.segundo);
+            expect(resultado).toBe(respostas.segundo);
+        });
+
+        it('Contra Spock', () => {
+            const resultado = juizJokenpo(movimentos.spock, movimentos.papel);
+
+            expect(resultado).toBe(respostas.segundo);
+        });
     });
 });
 
@@ -56,6 +104,18 @@ describe('Empate', () => {
 
     it('Escolhendo Papel', () => {
         const resultado = juizJokenpo(movimentos.pedra, movimentos.pedra);
+
+        expect(resultado).toBe(respostas.empate);
+    });
+
+    it('Escolhendo Lagarto', () => {
+        const resultado = juizJokenpo(movimentos.lagarto, movimentos.lagarto);
+
+        expect(resultado).toBe(respostas.empate);
+    });
+
+    it('Escolhendo Spock', () => {
+        const resultado = juizJokenpo(movimentos.spock, movimentos.spock);
 
         expect(resultado).toBe(respostas.empate);
     });
@@ -124,6 +184,14 @@ describe('Movimentos', () => {
 
     it('Deve retornar Tesoura', () => {
         expect(movimentos.tesoura).toBe('Tesoura');
+    });
+
+    it('Deve retornar Spock', () => {
+        expect(movimentos.spock).toBe('Spock');
+    });
+
+    it('Deve retornar Lagarto', () => {
+        expect(movimentos.lagarto).toBe('Lagarto');
     });
 });
 

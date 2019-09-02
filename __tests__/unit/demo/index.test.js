@@ -1,4 +1,4 @@
-const { calcularMedia, respostas } = require('../../../demo');
+const { calcularMedia, respostas } = require('../../../src/demo');
 
 describe('Valores válidos', () => {
     it('Deve retornar Aprovado com Distinção caso a média seja 10', () => {
